@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Simple multistep form in jquery</title>
+	<link rel="stylesheet" href="multiplexer.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container" style="margin-top: 30px;background-color: #eee;padding: 20px;">
+			<div class="multiplex-steps"></div>
+
+			<br><br><br><br><br><br><br><br>
+
+			<div class="multiplex-form" data-step="1">
+				<div>
+					<form class="form-horizontal">
+
+						<div class="form-group"> <!-- Full Name -->
+							<label for="full_name_id" class="control-label col-sm-2">Full Name</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="full_name_id" name="full_name" placeholder="John Deer">
+							</div>  
+						</div>
+
+						<div class="form-group"> <!-- Email -->
+							<label for="email_id" class="control-label col-sm-2">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="email_id" name="email_name" placeholder="name@domain.com">
+								<p class="help-text">We value your privacy and will never sell your email address.</p>
+							</div>  
+						</div>
+						
+						<div class="form-group"> <!-- Frequency Field -->
+							<label class="control-label col-sm-2">Email Me</label>
+							<div class="col-sm-10">
+								<div class="radio">
+									<label class="radio">
+										<input name="email_frequency" type="radio" value="day"/>
+										Daily
+									</label>
+								</div>
+								<div class="radio">
+									<label class="radio">
+										<input name="email_frequency" type="radio" value="week"/>
+										Weekly
+									</label>
+								</div>	
+								<div class="radio">
+									<label class="radio">
+										<input name="email_frequency" type="radio" value="month"/>
+										Monthly
+									</label>
+								</div>											
+							</div>
+						</div>							
+						 
+						<div class="form-group"> <!-- Submit Button -->
+							<div class="col-sm-10 col-sm-offset-2">                     
+								<button type="submit" class="btn btn-primary">Get Updates!</button>
+							</div>
+						</div>        
+						 
+					</form>  
+											
+					<button class="btn-prev">Prev</button>
+					<button class="btn-next">Next</button>
+				</div>
+
+				<div>
+					<div class="form-group">
+						<form>
+							<div class="form-group"> <!-- Email field !-->
+								<label for="email_id" class="control-label">Email</label>
+								<input type="email" class="form-control" id="email_id" name="email_name" placeholder="name@domain.com">
+							</div>
+							
+							<div class="form-group"> <!-- Submit button !-->
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>	
+						</form>
+								
+
+					</div>
+				<button class="btn-prev">Prev</button>
+				<button class="btn-next">Next</button>
+				</div>
+				
+			<div>
+				<form>
+
+					<div class="form-group"> <!-- Name field -->
+						<label class="control-label " for="name">Name</label>
+						<input class="form-control" id="name" name="name" type="text"/>
+					</div>
+					
+					<div class="form-group"> <!-- Email field -->
+						<label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
+						<input class="form-control" id="email" name="email" type="text"/>
+					</div>
+					
+					<div class="form-group"> <!-- Subject field -->
+						<label class="control-label " for="subject">Subject</label>
+						<input class="form-control" id="subject" name="subject" type="text"/>
+					</div>
+					
+					<div class="form-group"> <!-- Message field -->
+						<label class="control-label " for="message">Message</label>
+						<textarea class="form-control" cols="40" id="message" name="message" rows="3"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<button class="btn btn-primary " name="submit" type="submit">Submit</button>
+					</div>
+					
+				</form>		
+				<button class="btn-prev">Prev</button>
+				<button class="btn-next">Next</button>
+			</div>
+		</div>
+	</div>
+<script>
+	$('document').ready(function () {
+		$multiplexer.form('multiplex-form', 'multiplex-steps');
+		$('.btn-next').on('click', function(etv){
+			$multiplexer.next();
+		});
+		$('.btn-prev').on('click', function(etv){
+			$multiplexer.previous();
+		});
+	});
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="multiplexer.js"></script>
+</body>
+</html>
